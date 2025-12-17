@@ -40,4 +40,5 @@ X_user_scaled = scaler.transform(X_user)
 # 6️⃣ Prédire le prix
 if st.button("Prédire"):
     prediction = model.predict(X_user_scaled)
+    prediction = max(prediction[0], 0)
     st.success(f"Le prix prédit de la maison est : ${prediction[0]:,.2f}")
